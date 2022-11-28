@@ -22,7 +22,7 @@ public class Cifra {
     }
 
     private void encriptar() {
-
+        replace(null, null, null);
     }
 
     private void decriptar() {
