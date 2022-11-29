@@ -10,6 +10,10 @@ public class Cifra {
     // cifra para decriptar e encriptar
     private int cifra;
 
+    private final String[] CARACTERES_PARA_SUBSTITUIR = { "wbrw", "wvrw", "wptw", "wpvw", "wdpw", "wexw", "winw",
+            "whfw" };
+    private final String[] CARACTERES_SER_SUBSTITUIDO = { " ", ",", ".", ";", ":", "!", "?", "-" };
+
     private File arquivo;
     private final String NOME_ARQUIVO = "text.txt";
 
@@ -35,28 +39,42 @@ public class Cifra {
     }
 
     // método para substituir os caracteres
-    private ListCaracters substituicaoCaracteres(String string, String substituir, String substituido) {
+    private String substituicaoCaracteres(String string, String substituir, String substituido) {
 
         ListCaracters listCaracters = new ListCaracters();
 
+        return string.replaceAll(substituir, substituido);
+    }
+
+    private void encriptar() {
+
         try {
+            // cria a variável para receber o que for lido
+            String readString = "aa";
+
             // cria um leitor do arquivo
             FileReader reader = new FileReader(arquivo);
+
             // buffer para agilizar a leitura
             BufferedReader bReader = new BufferedReader(reader);
-            System.out.println(bReader.readLine());
+            readString = bReader.readLine();
+
+            for (int i = 0; i <= CARACTERES_PARA_SUBSTITUIR.length; i++) {
+                if (readString.contains(CARACTERES_SER_SUBSTITUIDO[i])) {
+                    readString = substituicaoCaracteres(readString, CARACTERES_SER_SUBSTITUIDO[i],
+                            CARACTERES_PARA_SUBSTITUIR[i]);
+                    System.out.println(readString);
+
+                }
+                System.out.println(readString);
+
+            }
 
             // fecha o buffer rader
             bReader.close();
         } catch (Exception e) {
             // TODO: handle exception
         }
-
-        return null;
-    }
-
-    private void encriptar() {
-        substituicaoCaracteres(null, null, null);
     }
 
     private void decriptar() {
