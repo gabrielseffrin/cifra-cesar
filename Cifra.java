@@ -41,14 +41,16 @@ public class Cifra {
     // unica entrada: do usuário fora o arquivo.txt
     public void executar() {
         lerTexto();
-        letOpcao();
+        lerOpcao();
 
         switch (opcao) {
             case 0:
                 encriptar();
+                getResultado();
                 break;
             case 1:
                 decriptar();
+                getResultado();
                 break;
             default:
                 break;
@@ -211,7 +213,7 @@ public class Cifra {
         }
     }
 
-    private void letOpcao() {
+    private void lerOpcao() {
         System.out.println("digite a opção: \r0 para encriptar e 1 para decriptar");
         this.opcao = scanner.nextInt();
     }
@@ -272,7 +274,14 @@ public class Cifra {
         }
     }
 
-    // retorna a mensagem
+    // retorna o resultado formatado para o usuário
+    public void getResultado() {
+        String aux = opcao == 0 ? "encriptada" : "decriptada";
+        System.out.println("a mensagem " + aux + ": " + listCaracters.getList() + "\n o tamanho da mensagem é: "
+                + listCaracters.getList().length());
+    }
+
+    // retorna apenas a mensagem para utilizar nos testes
     public String getTexto() {
         return listCaracters.getList();
     }

@@ -11,10 +11,14 @@ public class TesteEncriptar {
     // teste para encriptar
     public String deveEncriptar() {
 
+        // chama a execução que irá desencadear a camanhada do lerTexto() e lerOpcao()
         cifra.executar();
+
+        // retorna a mensagem encriptada e o tamanho dela se o retorna for igual ao
+        // esperada no teste
         return cifra.getTexto().equals(
                 "vgzvqydtydqpkvqydtyrctcydtyvguvgyrvyyfryyrxyyjhyydtyugtcydtyswgydtyhwpekqpcykpy")
-                        ? "Encripar passou"
+                        ? "Encripar passou\n Tamanho da mensagem encriptada: " + cifra.getTexto().length()
                         : "Encripar não passou";
     }
 }

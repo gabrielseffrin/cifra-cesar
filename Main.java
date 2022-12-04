@@ -4,11 +4,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        TesteDecriptar testeCifra = new TesteDecriptar();
-        TesteEncriptar encriptar = new TesteEncriptar();
+        Cifra cifra = new Cifra(2);
 
-        System.out.println(encriptar.deveEncriptar());
-        System.out.println(testeCifra.deveDecriptar());
+        cifra.executar();
+        
+        /*
+         * TesteDecriptar testeCifra = new TesteDecriptar();
+         * TesteEncriptar encriptar = new TesteEncriptar();
+         * 
+         * System.out.println(encriptar.deveEncriptar());
+         * System.out.println(testeCifra.deveDecriptar());
+         */
 
     }
 }
