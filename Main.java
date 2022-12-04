@@ -2,8 +2,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Cifra cifra = new Cifra(2);
+        TesteDecriptar testeCifra = new TesteDecriptar();
+        TesteEncriptar encriptar = new TesteEncriptar();
 
-        cifra.executar(0);
+        System.out.println(encriptar.deveEncriptar());
+        System.out.println(testeCifra.deveDecriptar());
+
+        // System.out.println(testeCifra.teste());
     }
 }

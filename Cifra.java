@@ -172,10 +172,16 @@ public class Cifra {
 
             // buffer para agilizar a leitura
             BufferedReader bReader = new BufferedReader(reader);
-            readString = bReader.readLine();
+
+            // lê todos as linhas do arquivo .txt
+            String aux = bReader.readLine();
+            while (aux != null) {
+                readString += aux + "\r\n";
+                aux = bReader.readLine();
+            }
 
             // cria o "escritor" para escrever no arquivo
-            FileWriter fileWriter = new FileWriter(arquivo);
+            FileWriter fileWriter = new FileWriter(arquivo, false);
 
             // chamada do método para alocar dinâmicamente a lista
             alocardinamicamente(readString);
@@ -185,9 +191,6 @@ public class Cifra {
 
             // escreve a mensagem encriptogradada
             fileWriter.write(listCaracters.getList());
-
-            // exibe a mensagem para o usuário
-            System.out.println("Mensagem encriptada: \n" + listCaracters.getList());
 
             // fecha o buffer rader e write
             bReader.close();
@@ -211,7 +214,7 @@ public class Cifra {
             readString = bReader.readLine();
 
             // cria o "escritor" para escrever no arquivo
-            FileWriter fileWriter = new FileWriter(arquivo);
+            FileWriter fileWriter = new FileWriter(arquivo, false);
 
             // chamada do método para alocar dinâmicamente a lista
             alocardinamicamente(readString);
@@ -222,9 +225,6 @@ public class Cifra {
             // escreve a mensagem encriptogradada
             fileWriter.write(listCaracters.getList());
 
-            // exibe a mensagem para o usuário
-            System.out.println("Mensagem decriptada: \n" + listCaracters.getList());
-
             // fecha o buffer rader e write
             bReader.close();
             fileWriter.close();
@@ -234,10 +234,16 @@ public class Cifra {
         }
     }
 
+    // método criado para alocar a lista dinâmicamente
     private void alocardinamicamente(String texto) {
 
         for (int i = 0; i < texto.length(); i++) {
             listCaracters.insertTail(texto.charAt(i));
         }
+    }
+
+    // retorna a mensagem
+    public String getTexto() {
+        return listCaracters.getList();
     }
 }
