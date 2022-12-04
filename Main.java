@@ -1,3 +1,5 @@
+// Eliezer, Gabriel
+
 public class Main {
 
     public static void main(String[] args) {
@@ -8,6 +10,5 @@ public class Main {
         System.out.println(encriptar.deveEncriptar());
         System.out.println(testeCifra.deveDecriptar());
 
-        // System.out.println(testeCifra.teste());
     }
 }

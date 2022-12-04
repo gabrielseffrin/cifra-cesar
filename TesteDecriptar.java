@@ -1,3 +1,5 @@
+// Eliezer, Gabriel
+
 public class TesteDecriptar {
 
     private Cifra cifra;
@@ -6,11 +8,12 @@ public class TesteDecriptar {
         cifra = new Cifra(2);
     }
 
+    // teste para decriptar
     public String deveDecriptar() {
 
-        cifra.executar(1);
-        return cifra.getTexto().equals("texto bonito para teste.:;- sera que funciona?\r\n- funciona sim!\r\n")
-                ? "passou"
-                : "não passou";
+        cifra.executar();
+        return cifra.getTexto().equals("texto bonito para teste.:;- sera que funciona?\r\n")
+                ? "Decriptar passou"
+                : "Decriptar não passou";
     }
 }

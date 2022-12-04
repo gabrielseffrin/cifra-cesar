@@ -1,3 +1,5 @@
+// Eliezer, Gabriel
+
 public class TesteEncriptar {
 
     private Cifra cifra;
@@ -6,12 +8,13 @@ public class TesteEncriptar {
         cifra = new Cifra(2);
     }
 
+    // teste para encriptar
     public String deveEncriptar() {
 
-        cifra.executar(0);
+        cifra.executar();
         return cifra.getTexto().equals(
-                "vgzvqydtydqpkvqydtyrctcydtyvguvgyrvyyfryyrxyyjhyydtyugtcydtyswgydtyhwpekqpcykpyyjhyydtyhwpekqpcydtyukoygzyss")
-                        ? "passou"
-                        : "não passou";
+                "vgzvqydtydqpkvqydtyrctcydtyvguvgyrvyyfryyrxyyjhyydtyugtcydtyswgydtyhwpekqpcykpy")
+                        ? "Encripar passou"
+                        : "Encripar não passou";
     }
 }

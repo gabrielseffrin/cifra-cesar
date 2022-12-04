@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Scanner;
 
 /**
  * Cifra
@@ -15,6 +16,12 @@ public class Cifra {
 
     // lista para armazenar dinâmicamente os caracteres
     private ListCaracters listCaracters;
+
+    // Scanner
+    private Scanner scanner;
+
+    // opcao do usuário
+    private int opcao;
 
     private final String[] CARACTERES_PARA_SUBSTITUIR = { "wbrw", "wvrw", "wptw", "wpvw", "wdpw", "wexw", "winw",
             "whfw" };
@@ -28,10 +35,13 @@ public class Cifra {
         this.cifra = cifra;
         arquivo = new File(arquivo, NOME_ARQUIVO);
         listCaracters = new ListCaracters();
+        scanner = new Scanner(System.in);
     }
 
     // unica entrada: do usuário fora o arquivo.txt
-    public void executar(int opcao) {
+    public void executar() {
+        lerTexto();
+        letOpcao();
 
         switch (opcao) {
             case 0:
@@ -194,6 +204,24 @@ public class Cifra {
 
             // fecha o buffer rader e write
             bReader.close();
+            fileWriter.close();
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void letOpcao() {
+        this.opcao = scanner.nextInt();
+    }
+
+    private void lerTexto() {
+        String entradaUsuario = scanner.nextLine();
+
+        try {
+            // cria o "escritor" para escrever no arquivo
+            FileWriter fileWriter = new FileWriter(arquivo, false);
+            fileWriter.write(entradaUsuario);
             fileWriter.close();
 
         } catch (Exception e) {
