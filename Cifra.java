@@ -159,10 +159,12 @@ public class Cifra {
 
         String aux = localLista.getList();
 
+        // for para substituir os caracteres "wbrw, wvrw" etc.
         for (int i = CARACTERES_SER_SUBSTITUIDO.length - 1; i >= 0; i--) {
             aux = aux.replaceAll(CARACTERES_PARA_SUBSTITUIR[i], CARACTERES_SER_SUBSTITUIDO[i]);
         }
 
+        // foreach para alocar dinâmicamente
         localLista = new ListCaracters();
         for (int i = 0; i < aux.length(); i++) {
             localLista.insertTail(aux.charAt(i));
@@ -213,11 +215,13 @@ public class Cifra {
         }
     }
 
+    // método para ler a entrada do usuário
     private void lerOpcao() {
         System.out.println("digite a opção: \r0 para encriptar e 1 para decriptar");
         this.opcao = scanner.nextInt();
     }
 
+    // método para ler a entrada do usuário e salvar no txt
     private void lerTexto() {
         System.out.println("digite a mensagem");
         String entradaUsuario = scanner.nextLine();
