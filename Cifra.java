@@ -212,10 +212,12 @@ public class Cifra {
     }
 
     private void letOpcao() {
+        System.out.println("digite a opção: \r0 para encriptar e 1 para decriptar");
         this.opcao = scanner.nextInt();
     }
 
     private void lerTexto() {
+        System.out.println("digite a mensagem");
         String entradaUsuario = scanner.nextLine();
 
         try {
