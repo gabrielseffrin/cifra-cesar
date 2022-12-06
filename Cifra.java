@@ -40,7 +40,7 @@ public class Cifra {
 
     // unica entrada: do usuário fora o arquivo.txt
     public void executar() {
-        lerTexto();
+       // lerTexto();
         lerOpcao();
 
         switch (opcao) {
